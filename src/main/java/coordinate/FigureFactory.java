@@ -1,21 +1,38 @@
 package coordinate;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.stream.Stream;
+
+enum FigureEnum {
+    LINE(2, Line.class),
+    TRIANGLE(3, Triangle.class),
+    RECTANGLE(4, Rectangle.class);
+
+    private int size;
+    private Class<?> figureClass;
+
+    FigureEnum(int size, Class<?> figureClass) {
+        this.size = size;
+        this.figureClass = figureClass;
+    }
+
+    public static Class<?> getFigureClass(int size) {
+        return Stream.of(FigureEnum.values())
+                .filter(val -> val.size == size)
+                .findFirst()
+                .map(val -> val.figureClass)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid size: " + size));
+    }
+}
 
 public class FigureFactory {
     static Figure getInstance(List<Point> points) {
-        if (points.size() == Line.LINE_POINT_SIZE) {
-            return new Line(points);
+        try {
+            return (Figure) FigureEnum.getFigureClass(points.size()).getDeclaredConstructor(List.class).newInstance(points);
+        } catch (Exception e) {
         }
 
-        if (points.size() == Triangle.TRIANGLE_POINT_SIZE) {
-            return new Triangle(points);
-        }
-
-        if (points.size() == Rectangle.RECTANGLE_POINT_SIZE) {
-            return new Rectangle(points);
-        }
-
-        throw new IllegalArgumentException("유효하지 않은 도형입니다.");
+        throw new IllegalArgumentException("잘못된 도형임");
     }
 }
