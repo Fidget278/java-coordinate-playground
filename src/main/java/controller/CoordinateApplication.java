@@ -1,7 +1,7 @@
-package application;
+package controller;
 
-import poly.Point;
-import poly.Points;
+import domain.Point;
+import domain.Points;
 import ui.InputView;
 import ui.ResultView;
 

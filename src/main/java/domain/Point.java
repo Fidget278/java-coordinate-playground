@@ -1,4 +1,4 @@
-package poly;
+package domain;
 
 public class Point implements Comparable<Point> {
     private Coordinate x;

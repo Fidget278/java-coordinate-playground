@@ -1,8 +1,8 @@
 package ui;
 
-import poly.Area;
-import poly.Point;
-import poly.Points;
+import domain.Area;
+import domain.Point;
+import domain.Points;
 
 import java.util.Arrays;
 

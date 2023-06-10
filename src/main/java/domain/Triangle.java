@@ -1,4 +1,4 @@
-package poly;
+package domain;
 
 import java.util.Arrays;
 

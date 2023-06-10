@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import poly.*;
+import domain.*;
 import ui.InputView;
 
 import static org.assertj.core.api.Assertions.assertThat;

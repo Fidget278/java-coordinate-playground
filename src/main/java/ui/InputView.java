@@ -1,6 +1,6 @@
 package ui;
 
-import poly.Point;
+import domain.Point;
 
 import java.util.Arrays;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package poly;
+package domain;
 
 public class Rectangle extends Points {
     private static final int LEFT_BOTTOM = 0;

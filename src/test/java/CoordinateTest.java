@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import poly.Coordinate;
+import domain.Coordinate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;

@@ -1,4 +1,4 @@
-package poly;
+package domain;
 
 public class Coordinate {
     private int value;

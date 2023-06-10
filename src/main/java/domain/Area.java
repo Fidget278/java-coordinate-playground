@@ -1,4 +1,4 @@
-package poly;
+package domain;
 
 public interface Area {
     double area();
