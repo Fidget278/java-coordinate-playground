@@ -10,9 +10,9 @@ enum FigureEnum {
     RECTANGLE(4, Rectangle.class);
 
     private int size;
-    private Class<?> figureClass;
+    private Class<? extends AbstractFigure> figureClass;
 
-    FigureEnum(int size, Class<?> figureClass) {
+    FigureEnum(int size, Class<? extends AbstractFigure> figureClass) {
         this.size = size;
         this.figureClass = figureClass;
     }
@@ -31,8 +31,7 @@ public class FigureFactory {
         try {
             return (Figure) FigureEnum.getFigureClass(points.size()).getDeclaredConstructor(List.class).newInstance(points);
         } catch (Exception e) {
+            throw new IllegalArgumentException("잘못된 도형임");
         }
-
-        throw new IllegalArgumentException("잘못된 도형임");
     }
 }
